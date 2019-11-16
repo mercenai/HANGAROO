@@ -1,0 +1,8 @@
+import random
+def getGuessedWord(secretWord,lettersGuessed):
+    guessed=''
+    for l in secretWord:
+        if l in lettersGuessed:
+            guessed+=l
+        else: guessed+=' _ '
+    return guessed
