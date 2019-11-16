@@ -1,0 +1,25 @@
+import random
+secretWordlist=['red','black','yellow','programming','python','integral','anime','gate','erased','luffy','zoro','naruto']
+def Hangaroo(secretWord):
+    secretWord=random.choice(secretWordlist)
+    guesses=8
+    lettersGuessed=[]
+    print('Welcome to Hangaroo!')
+    print('You are given 8 guesses for each game!')
+    print('Let us start! The word contains ' + str(len(secretWord)) + ' letters.')
+            
+    while guesses>0:
+        if isWordGuessed(secretWord,lettersGuessed):
+            return print('You won! Good Job!')
+        print('You only have '+str(guesses)+' guesses left.')
+        print('Available Letters: ' +getAvailableLetters(lettersGuessed))
+        letter=str(input('Guess a letter: '))
+        letter=letter.lower()
+                
+        if letter not in lettersGuessed:
+            lettersGuessed.append(letter)
+                    
+            if letter in secretWord:
+                print('Good job: '+getGuessedWord(secretWord,lettersGuessed))
+            else: print('Oh no! You have already guessed that letter: '+getGuessedWord(secretWord,lettersGuessed))
+    return print('Sorry, you have ran out of guesses. The word you were trying to guess was: '+str(secretWord))
