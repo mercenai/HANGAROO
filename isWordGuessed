@@ -1,0 +1,7 @@
+import random
+def isWordGuessed(secretWord,lettersGuessed):
+    for l in secretWord:
+        if l in lettersGuessed:
+            continue
+        else: return False
+    return True
